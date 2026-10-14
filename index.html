@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Durga Puja in Biharsharif</title>
+<style>
+:root{--maroon:#4a0e17;--lal:#b3122b;--gold:#f2a33a;--cream:#fbf6ee;--ink:#2a1a1a}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,"Times New Roman",serif;background:var(--cream);color:var(--ink);line-height:1.8}
+a{text-decoration:none}
+.top{background:var(--maroon);padding:12px 16px;border-bottom:6px solid var(--gold)}
+.btn{display:inline-block;background:var(--gold);color:var(--maroon);padding:10px 22px;border-radius:30px;font-weight:bold;border:0;cursor:pointer;font-size:1rem}
+.btn:hover,.btn:focus-visible{background:#fff;outline:2px solid var(--gold)}
+.imgbox{position:relative;width:100%;aspect-ratio:4/3;background:linear-gradient(135deg,var(--lal),var(--gold));border-radius:4px;overflow:hidden}
+.imgbox img{width:100%;height:100%;object-fit:cover;display:block}
+.imgbox.empty img{display:none}
+.imgbox.empty::after{content:attr(data-label);position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;padding:10px;font-size:.9rem}
+h2.title{text-align:center;color:var(--lal);margin:40px 0 18px;font-size:1.8rem}
+.box{max-width:1100px;margin:0 auto 50px;padding:24px;background:#fff;border:3px solid var(--gold);border-radius:10px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{text-align:center}
+.card h3{margin:10px 0 8px;color:var(--maroon);font-size:1.1rem}
+.where{display:block;margin:0 0 10px;font-size:.9rem;color:#fff;background:var(--maroon);padding:4px 8px;border-left:5px solid var(--gold)}
+.page{max-width:1000px;margin:0 auto;padding:30px 18px}
+.page h1{color:var(--lal);text-align:center;margin-bottom:6px}
+.sub{text-align:center;margin-bottom:24px;color:var(--maroon)}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.gallery figcaption{font-size:.85rem;text-align:center;padding:4px;background:var(--maroon);color:var(--cream)}
+.why{margin-top:34px;background:#fff1da;border-left:6px solid var(--gold);padding:20px 24px}
+.why h2{color:var(--lal);margin-bottom:10px}
+.why li{margin:0 0 6px 20px}
+footer{background:var(--maroon);color:#f3d9b0;text-align:center;padding:24px}
+.banner{position:relative;border-bottom:8px solid var(--gold)}
+.banner .imgbox{aspect-ratio:auto;height:72vh;min-height:360px;border-radius:0}
+.banner .imgbox.empty::after{align-items:flex-end;padding-bottom:14px}
+.overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#fff;padding:20px;background:linear-gradient(rgba(74,14,23,.55),rgba(74,14,23,.35));text-shadow:0 2px 8px rgba(0,0,0,.7)}
+.overlay h1{font-size:clamp(2.6rem,10vw,5.5rem);color:var(--gold);line-height:1.1}
+.overlay h2{font-size:clamp(1.3rem,5vw,2.6rem);font-weight:normal;margin:4px 0 12px}
+.overlay p{max-width:520px;color:#fbe7c6}
+@media(max-width:800px){.grid,.gallery{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.grid,.gallery{grid-template-columns:1fr}}
+</style></head>
+<body>
+<script>
+/* ===== PHOTOS (Wikimedia Commons file names; you can also paste your own full https link) ===== */
+var HERO = "A_Durga_Puja_Pandal_at_Patna_Bihar.jpg";
+var CARDS = ["Durga_Ma_Idol.jpg","Durga,_Burdwan,_2011.JPG","Idol_of_Goddess_Durga_(Ceremonial_Worship)_08.jpg","Idol_of_Goddess_Durga_(Ceremonial_Worship)_09.jpg","Idol_of_Goddess_Durga_(Ceremonial_Worship)_17.jpg","Chalta_Bagan_Durga_Puja_2019.jpg"];
+var POOL = ["Idol_of_Goddess_Durga_(Ceremonial_Worship)_03.jpg","A_Durga_Puja_Pandal_at_Patna_Bihar.jpg","2011_Durga_Puja_Pandal.jpg","Idol_of_Goddess_Durga_(Ceremonial_Worship)_10.jpg","Glimpses_of_Durga_Puja_and_The_Pandal_Art.jpg","Decorated_mock_walls_at_a_Durga_Puja_pandal.jpg","Idol_of_Goddess_Durga_(Ceremonial_Worship)_28.jpg","Durga_puja_pandal_in_West_Bengal.jpg","Pandal_at_Kashmere_Gate,_Delhi,_Durga_Puja_in_2015.jpg","Idol_of_Goddess_Durga_(Ceremonial_Worship)_30.jpg","Sculpture_at_Durga_Puja_Pandal.jpg","Durga_Puja_Pandal_Bankura_(2012).jpg","Artistic_representaion_of_a_mother_outside_puja_pandal.JPG"];
+/* Your own photo links for a place go here, e.g. MY[0]=["https://...jpg","","","","",""]; empty "" keeps the default photo */
+var MY = [[],[],[],[],[],[]];
+var PLACES = [
+ ["Bari Pahari","Bari Pahari, Biharsharif, Nalanda"],
+ ["Laheri","Laheri, Biharsharif, Nalanda"],
+ ["Sogra","Sogra, Biharsharif, Nalanda"],
+ ["Bus Stand Area","Near Bus Stand, Biharsharif, Nalanda"],
+ ["Main Bazar","Main Bazar, Biharsharif, Nalanda"],
+ ["Station Road","Station Road, Biharsharif, Nalanda"]
+];
+var CAPS = ["Maa Durga idol","Pandal front view","Pandal at night","Evening aarti","Surroundings","Street view nearby"];
+function LINES(n){return [
+ n+" is one of the best known Durga Puja spots in Biharsharif, and people from nearby streets and towns come here every year.",
+ "The Maa Durga idol is placed in a decorated pandal, and the artisans put great care into every detail of the face and ornaments.",
+ "Evening aarti is the heart of the festival, with conch shells, bells and the whole neighbourhood singing together.",
+ "At night the pandal and the road around it glow with colourful lights, which makes it a favourite for families.",
+ "The place is easy to reach, so even people from other parts of Nalanda district can visit without trouble.",
+ "Small shops selling sweets, toys, bangles and puja items gather around the pandal and create a lively fair.",
+ "The local puja committee organises the festival peacefully with volunteers looking after crowds and safety.",
+ "On Ashtami and Navami the crowd is the biggest, as devotees come to offer flowers and seek blessings.",
+ "Children enjoy the lights, swings and sweets, while elders enjoy the quiet prayers early in the morning.",
+ "On Dashami the idol is bid farewell with emotion, and the wish for next year is shared by everyone: come back soon, Maa."];}
+
+/* ===== CODE BELOW: no need to change ===== */
+function u(n){
+ if(!n) return "";
+ if(/^http/.test(n)) return n;
+ return "https://commons.wikimedia.org/wiki/Special:FilePath/"+n+"?width=900";
+}
+function ph(i,j){ return (MY[i]&&MY[i][j]) || POOL[(i*3+j)%POOL.length]; }
+function box(url,label){
+ var e=url?"":" empty";
+ return '<div class="imgbox'+e+'" data-label="'+label+'"><img alt="'+label+'" src="'+url+'" onerror="this.parentNode.className+=\' empty\'"></div>';
+}
+function home(){
+ var c="";
+ PLACES.forEach(function(p,i){
+  c+='<div class="card">'+box(u(CARDS[i]),p[0])+'<h3>'+p[0]+'</h3><span class="where">&#128205; '+p[1]+'</span><a class="btn" href="#place'+(i+1)+'">Click Now</a></div>';
+ });
+ return '<section class="banner">'+box(u(HERO),"Maa Durga")+
+ '<div class="overlay"><h1>Welcome</h1><h2>to Durga Puja in Biharsharif</h2><p>Nine nights of devotion, lights and music in the heart of Nalanda.</p></div></section>'+
+ '<h2 class="title">Maa Durga in Biharsharif</h2><div class="box"><div class="grid">'+c+'</div></div>'+
+ '<footer>Jai Mata Di &#128591; Happy Navratri and Vijayadashami<br></footer>';
+}
+function place(i){
+ var p=PLACES[i],g="",l="";
+ CAPS.forEach(function(c,j){g+='<figure>'+box(u(ph(i,j)),c)+'<figcaption>'+c+'</figcaption></figure>';});
+ LINES(p[0]).forEach(function(x){l+='<li>'+x+'</li>';});
+ return '<div class="top"><a class="btn" href="#home">&larr; Back to Home</a></div>'+
+ '<div class="page"><h1>'+p[0]+'</h1><p class="sub">&#128205; '+p[1]+'</p><div class="gallery">'+g+'</div>'+
+ '<div class="why"><h2>Why is this place famous?</h2><ul>'+l+'</ul></div></div><footer>Jai Mata Di &#128591;</footer>';
+}
+var app=document.createElement("div");document.body.appendChild(app);
+function show(){
+ var h=location.hash.replace("#",""),m=/^place([1-6])$/.exec(h);
+ app.innerHTML=m?place(m[1]-1):home();
+ window.scrollTo(0,0);
+}
+window.addEventListener("hashchange",show);show();
+</script>
+</body></html>
